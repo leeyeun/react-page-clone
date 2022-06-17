@@ -7,17 +7,14 @@ import Community from "../Community";
 import Docs from "../Docs";
 import Main from "../Main/Main";
 import Tutorial from "../Tutorial";
+import "./header.css";
+
 export default function Header() {
-  const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: #fff;
-    width: 100%;
-  `;
   const StyledHeader = styled.header`
     background-color: #272c34;
   `;
   const NavBar = styled.div`
-    width: 1260px;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     padding: 0 20px;
@@ -26,27 +23,44 @@ export default function Header() {
 
   const Divbox = styled.div`
     display: flex;
+    align-items: center;
   `;
 
+  const LogoLink = styled.a`
+    /* display: flex; */
+    margin-right: 10px;
+  `;
+  const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    :hover {
+    }
+  `;
   // const
   return (
     <StyledHeader>
       <NavBar>
         <Divbox>
-          <a href="/">
+          <LogoLink href="/">
             <img src={logo} alt="" style={{ height: "20px" }} />
             <span className="logo">React</span>
-          </a>
-          <StyledLink to="/docs">Docs</StyledLink>
-          <StyledLink to="/tutorial">Tutorial</StyledLink>
-          <StyledLink to="/blog">Blog</StyledLink>
-          <StyledLink to="/community">Community</StyledLink>
-          <Switch>
-            <Route path="/docs" exact={true} component={Docs} />
-            <Route path="/tutorial" exact={true} component={Tutorial} />
-            <Route path="/blog" exact={true} component={Blog} />
-            <Route path="/community" exact={true} component={Community} />
-          </Switch>
+          </LogoLink>
+          <nav>
+            <StyledLink to="/docs">Docs</StyledLink>
+            <StyledLink to="/tutorial">Tutorial</StyledLink>
+            <StyledLink to="/blog">Blog</StyledLink>
+            <StyledLink to="/community">Community</StyledLink>
+          </nav>
+          <form>
+            <input type="search" style={{}} />
+          </form>
+          <StyledLink to="/community"></StyledLink>
+          <StyledLink to="/community">v18.2.0</StyledLink>
+          <StyledLink to="/community">Languages</StyledLink>
+          <StyledLink to="/community">Github</StyledLink>
         </Divbox>
       </NavBar>
     </StyledHeader>
